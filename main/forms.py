@@ -8,7 +8,7 @@ class AgtForm(forms.ModelForm):
             'class':"input--style-3",
              'type' : "text",
               'placeholder': "Name",
-            #    'name':"name",
+               'name':"name",
         }
     ))
     email = forms.CharField(widget=forms.TextInput(
@@ -16,7 +16,7 @@ class AgtForm(forms.ModelForm):
             'class': "input--style-3",
             'type': "text",
             'placeholder': "Email",
-            # 'name': "email",
+            'name': "email",
         }
     ))
     college = forms.CharField(widget=forms.TextInput(
@@ -24,7 +24,7 @@ class AgtForm(forms.ModelForm):
             'class': "input--style-3",
             'type': "text",
             'placeholder': "College",
-            # 'name': "college",
+            'name': "college",
         }
     ))
     contactno = forms.CharField(widget=forms.TextInput(
@@ -32,7 +32,7 @@ class AgtForm(forms.ModelForm):
             'class': "input--style-3",
             'type': "text",
             'placeholder': "Phone",
-            # 'name': "contactno",
+            'name': "contactno",
         }
     ))
     perform = forms.CharField(widget=forms.TextInput(
@@ -40,12 +40,12 @@ class AgtForm(forms.ModelForm):
             'class': "input--style-3",
             'type': "text",
             'placeholder': "Type of Performance",
-            # 'name': "perform",
+            'name': "perform",
         }
     ))
     class Meta:
         model = Agt
-        fields = ('name', 'college', 'email', 'contactno', 'perform')
+        fields = ['name', 'college', 'email', 'contactno', 'perform']
 
 
 class BigRoarForm(forms.ModelForm):

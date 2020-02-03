@@ -5,7 +5,9 @@ from django.views.generic import UpdateView
 from .models import *
 from .forms import *
 # Create your views here.
-
+# def redirect2(pk,s,towhere):
+#     Id =  str(s) + str(pk)
+#     k = {'id':Id}
 
 def index(request):
     return render(request, "index.html")
@@ -23,11 +25,13 @@ def Registration(request):
     if request.method == "POST":
         form = AgtForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            print(post.name)
-            post.author = request.user
-            post.save()
-            return redirect('/')
+            if form.is_valid():
+                post = form.save(commit=False)
+                print(post.pk)
+                post.author = request.user
+                post.save()
+                s = "AGT-"+str(post.pk)
+                return render(request, 'agtredirect.html', {'id': s})
     else:
         form = AgtForm()
     return render(request, 'agt.html', {'form': form, 'price' : 100})
@@ -39,7 +43,8 @@ def bigroar(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "BIGR-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = BigRoarForm()
     return render(request, 'bigroar.html', {'form': form, 'price': 100})
@@ -52,10 +57,11 @@ def vyak(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "VYAK-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = vyaktitvaForms()
-    return render(request, 'bigroar.html', {'form': form, 'price': 100})
+    return render(request, 'bigroar.html', {'form': form, 'price': 150})
 
 
 def antra(request):
@@ -65,10 +71,11 @@ def antra(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "ANTRA-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = AntraForm()
-    return render(request, 'bigroar.html', {'form': form, 'price': 100})
+    return render(request, 'bigroar.html', {'form': form, 'price': 150})
 
 
 def kav(request):
@@ -78,7 +85,8 @@ def kav(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "KAVY"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = KavyanForm()
     return render(request, 'bigroar.html', {'form': form, 'price': 100})
@@ -91,10 +99,11 @@ def ToTheBeat1(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "TOTHEB-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = ToTheBeatForm()
-    return render(request, 'bigroar.html', {'form': form, 'price': 100})
+    return render(request, 'bigroar.html', {'form': form, 'price': 150})
 
 
 def ToTheBeatG(request):
@@ -104,10 +113,11 @@ def ToTheBeatG(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "TOTHEBG-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = ToTheBeatGForm()
-    return render(request, 'tothebeatg.html', {'form': form, 'price': 100})
+    return render(request, 'tothebeatg.html', {'form': form, 'price': 350})
 
 
 def Talk(request):
@@ -117,10 +127,11 @@ def Talk(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "TALK-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = TalkForm()
-    return render(request, 'talk.html', {'form': form, 'price': 100})
+    return render(request, 'talk.html', {'form': form, 'price': 150})
 
 
 def craftix(request):
@@ -130,7 +141,8 @@ def craftix(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('/')
+            s = "CRAFT-"+str(post.pk)
+            return render(request, 'agtredirect.html', {'id': s})
     else:
         form = CraftixForm()
     return render(request, 'bigroar.html', {'form': form, 'price': 100})
